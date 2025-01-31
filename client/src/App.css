@@ -16,3 +16,38 @@
   justify-items: center;
   align-items: center;
 }
+
+/* Nav bar Stuff */
+
+#NavBar {
+  display: flex;
+  grid-area: 1 / 2 / 1 / 3;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#NavHome {
+  border: 1px solid #eea990;
+}
+
+#NavHome:hover {
+  color: #aa6f73;
+}
+
+#NavPosts {
+  border: 1px solid #eea990;
+}
+
+#NavPosts:hover {
+  color: #aa6f73;
+}
+
+#NavImages {
+  border: 1px solid #eea990;
+}
+
+#NavImages:hover {
+  color: #aa6f73;
+}
+
+/*  */
