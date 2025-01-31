@@ -1,14 +1,20 @@
 export default function MainForm() {
   function handleSubmit(event) {
+    const formData = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      words: document.getElementById("words").value,
+    };
+
     event.preventDefault();
-    const formData = new FormData(MainForm);
-    const formValues = Object.fromEntries(formData);
+    console.log(formData);
     fetch("http://localhost:8080/formEntry", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ formValues }),
+      body: JSON.stringify({ formData }),
     });
   }
   return (

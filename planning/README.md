@@ -15,3 +15,17 @@ As part of this project I want to set myself the personal goal of having an imag
 31/01 - Lunch
 
 Most of this push was quite easy and basic. The area that I'm currently struggling with is the fetch for the posts. Initially I was going to do it in the app file, but I thought that may end up extremely messy. After writing it and coming across a lot of errors, in spite of it being an exact copy, I've decided to move it to the actual posts file and work on it from there after lunch.
+
+---
+
+31/01 3pm
+
+I started working on the posts section again and realised some of the issue was that I hadn't actually made a const for the set items yet and now everything seems to be working now that I've adjusted it. However, now my server isn't starting due to pg.pool, so I can't yet test that it's worked how I wanted it to. (2 minutes later I figured out it's because I didn't put a capital P on pool)
+
+What I'm now seeing is the data not actually coming through and crashing the server and page refresh. I believe this may be an issue with my connectionstring being wrong somewhere.
+
+I did notice an issue with the env file where I did : instead of =, however even after saving and restarting there were still issues. I decided to just rewrite the server and now it works. Still not completely sure where I went wrong, but the errors were coming up with an issue with the PG-Pool package.
+
+Currently working on the form and submitting them. I'm struggling to figure out how to send the data in react as it seems to be different from the vanilla framework. I am using Manny's demo as a guide, but that doesn't directly include an example for posting it. What I can see is a blocked out version that I don't belive was tested as on the RefactoredForm, I belive comparing to my notes, line 47 is incorrect and should be outside that set of curly brackets, but I may be wrong in this. However, doing it either way isn't currently helping as the main issue appears to be form values const.
+
+I have gotten the form to work, however the current issue is with the server. It's receiving the data correctly in an object, but isn't sending that to the database properly. I've tried a few different ways including one that Sita suggested, but it doesn't seem to be wroking

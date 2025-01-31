@@ -1,4 +1,7 @@
+import React, { useState, useEffect } from "react";
+
 export default function Posts() {
+  const [items, setItems] = useState([]);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -10,10 +13,19 @@ export default function Posts() {
       }
     }
     fetchData();
-  }, []);
+  }, [items]);
   return (
     <>
-      <p>Hello</p>
+      <div id="PostBox">
+        {items.map((item) => {
+          return (
+            <div className="PostBox" key={item.id}>
+              <p>From: {item.name}</p>
+              <p>{item.words}</p>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }
