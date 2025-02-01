@@ -1,4 +1,4 @@
-import express, { query } from "express";
+import express from "express";
 const app = express();
 
 import cors from "cors";
@@ -28,23 +28,10 @@ app.get("/posts", async (req, res) => {
   await res.json(query.rows);
 });
 
-// app.post("/formEntry", async (req, res) => {
-//   const data = req.body.formValues;
-//   const query = await db.query(
-//     `INSERT INTO posts (name, email, phone, words) VALUES ($1, $2, $3, $4)`,
-//     await db.query(query, [data.name, data.email, data.phone, data.words])
-//   );
-// });
-
-app.post("/formEntry", (req, res) => {
-  const data = req.body;
-
-  const query = db.query(
-    `INSERT INTO posts (name, email, phone, words)
-        VALUES ($1, $2, $3, $4)
-      `,
-    [data.name, data.email, data.phone, data.words]
-  );
-  console.log("Data received:", data);
-  res.json({ message: "Data updated! Go have a look in your table" });
+app.post("/submit-data", async (req, res) => {
+  const data = req.body.formData;
+  console.log(data);
+  const query = `INSERT INTO posts (name, email, phone, words)
+  VALUES ($1, $2, $3, $4)`;
+  await db.query(query, [data.name, data.email, data.phone, data.words]);
 });

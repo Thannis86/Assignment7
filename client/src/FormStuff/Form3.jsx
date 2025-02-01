@@ -1,5 +1,33 @@
 export default function MainForm() {
+  // const otherForm = document.getElementById("MainForm");
+
+  // otherForm.addEventListener("submit", async (event) => {
+  //   event.preventDefault(); // Prevent form from refreshing the page
+
+  //   // Gather form data
+  //   const formData = {
+  //     name: document.getElementById("name").value,
+  //     email: document.getElementById("email").value,
+  //     phone: document.getElementById("phone").value,
+  //     words: document.getElementById("words").value,
+  //   };
+
+  //   // Send data to the server
+  //   const response = await fetch("http://localhost:8080/formEntry", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(formData),
+  //   });
+
+  //   // Handle the server response
+  //   const result = await response.json();
+  //   console.log("Server response:", result);
+  // });
+
   function handleSubmit(event) {
+    event.preventDefault();
     const formData = {
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
@@ -7,9 +35,8 @@ export default function MainForm() {
       words: document.getElementById("words").value,
     };
 
-    event.preventDefault();
     console.log(formData);
-    fetch("http://localhost:8080/formEntry", {
+    fetch("http://localhost:8080/submit-data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +46,7 @@ export default function MainForm() {
   }
   return (
     <>
-      <form onSubmit={handleSubmit} id="MainForm">
+      <form id="MainForm" onClick={handleSubmit}>
         <input
           type="text"
           id="name"
@@ -35,7 +62,7 @@ export default function MainForm() {
           required
         />
         <input
-          type="tel"
+          type="text"
           name="phone"
           id="phone"
           placeholder="Write your phone number"
