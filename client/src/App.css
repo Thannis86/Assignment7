@@ -6,7 +6,7 @@
 #Main {
   display: grid;
   grid-template-columns: 1fr 6fr 1fr;
-  grid-row: 1fr 6fr 1fr 6fr 1fr 6fr;
+  grid-row: 1fr 6fr;
 }
 
 #MainForm {
@@ -16,53 +16,3 @@
   justify-items: center;
   align-items: center;
 }
-
-/* Nav bar Stuff */
-
-#NavBar {
-  display: flex;
-  grid-area: 1 / 2 / 1 / 3;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-#NavHome {
-  border: 1px solid #eea990;
-}
-
-#NavHome:hover {
-  color: #aa6f73;
-}
-
-#NavPosts {
-  border: 1px solid #eea990;
-}
-
-#NavPosts:hover {
-  color: #aa6f73;
-}
-
-#NavImages {
-  border: 1px solid #eea990;
-}
-
-#NavImages:hover {
-  color: #aa6f73;
-}
-
-/*  */
-
-/* Post boxes */
-
-#PostBox {
-  display: flex;
-  grid-area: 4 / 2 / 5 / 3;
-}
-
-.PostBox {
-  border: #aa6f73 1px solid;
-  width: 10%;
-  margin: 1%;
-}
-
-/*  */

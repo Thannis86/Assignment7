@@ -22,6 +22,7 @@ export default function Posts() {
   //
   return (
     <>
+      <div id="PostFilter"></div>
       <div id="PostBox">
         {items.map((item) => {
           return (

@@ -1,0 +1,20 @@
+#PostsPage {
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-row: 1fr 6fr;
+}
+
+/* Post boxes */
+
+#PostBox {
+  display: flex;
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.PostBox {
+  border: #aa6f73 1px solid;
+  width: 10%;
+  margin: 1%;
+}
+
+/*  */
