@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Likes from "./likes";
+import Filter from "./Filter";
 
 export default function Posts() {
   const [items, setItems] = useState([]);
@@ -23,6 +24,7 @@ export default function Posts() {
   return (
     <>
       <div id="PostFilter"></div>
+      <Filter />
       <div id="PostBox">
         {items.map((item) => {
           return (

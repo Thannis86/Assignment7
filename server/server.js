@@ -24,9 +24,33 @@ const db = new pg.Pool({
 });
 
 app.get("/posts", async (req, res) => {
-  const query = await db.query("SELECT * FROM posts ORDER BY ID");
+  const query = await db.query(
+    `SELECT * FROM posts
+    ORDER BY ID`
+  );
   await res.json(query.rows);
 });
+
+// app.get("/posts", async (req, res) => {
+//   const data = req.body;
+//   const query = await db.query(
+//     `SELECT * FROM posts
+//     WHERE name= '$1'
+//     ORDER BY ID`
+//   );
+//   await res.json(query.rows);
+// });
+
+// app.post("/posts", async (req, res) => {
+//   const data = req.body;
+//   console.log(data);
+//   const query = `SELECT * FROM posts
+//     WHERE name= '$1'
+//     ORDER BY ID`;
+//   await db.query(query, [data]);
+// });
+
+// ORDER BY ID
 
 app.post("/submit-data", async (req, res) => {
   const data = req.body.formData;
