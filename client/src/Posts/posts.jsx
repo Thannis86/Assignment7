@@ -24,21 +24,12 @@ export default function Posts() {
     <>
       <div id="PostBox">
         {items.map((item) => {
-          let likeCount = 0;
-          function likes() {
-            if (item.likes == "") {
-              likeCount = 0;
-            } else if (item.likes > 0) {
-              likeCount = item.likes;
-            }
-          }
-          likes();
           return (
             <div className="PostBox" key={item.id}>
               <p>From: {item.name}</p>
               <p>{item.words}</p>
               <button onClick={Likes} id={item.id}>
-                Likes:{likeCount}
+                Likes:{item.likes}
               </button>
             </div>
           );
