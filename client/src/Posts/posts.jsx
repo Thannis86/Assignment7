@@ -19,13 +19,13 @@ export default function Posts() {
       }
     }
     fetchData();
-  }, [items]);
+  }, []);
 
   //
   return (
     <>
       <div id="PostFilter"></div>
-      <Filter />
+      <Filter setItems={setItems} />
       <div id="PostBox">
         {items.map((item) => {
           return (

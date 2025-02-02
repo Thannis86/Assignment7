@@ -80,3 +80,33 @@ Initially working on the filter posts I thought it would be easiest to add some 
 02/02 9pm
 
 Getting my mind away from that for a breather I've started working on the delete button. My current idea is to basically do the same thing client side that I did for the likes button, but have the server side change. Instead of deleting it, I will change the hidden value to true, and add a section to the get request to not show hidden posts. This is technically the 'delete' function, but I think from an audit perspect you should never delete data. I am aware that if I changed this code to DELETE FROM posts WHERE id=$1, it would delete the post instead, but I prefer this alternative.
+
+02/02 - 10pm
+
+I have completed the filter function. I don't have the full brain capacity to currently describe it, but I did it with the assistance of a friend. If you want the full conversation, let me know, but it's a looooot.
+
+The hardest part of this has definitely been the filter function. The other parts were tedious, this was an actual pain in the ass. I wish I could have styled the entire thing better, but unfortunately I didn't have the time to put into this that I would have liked.
+
+<!-- I have it the following goals:
+
+Standard:
+• 🎯 Create a client using React.
+• 🎯 Use Express to create your server, using both GET and POST endpoints.
+• 🎯 Build a React form for users to create posts.
+• 🎯 Create multiple pages using React Router.
+• 🎯 Design a database schema, and seed the database with some realistic data.
+• 🎯 Use SQL to retrieve posts from the database in your Express server.
+• 🎯 Display all posts using .map().
+ALL DONE
+
+Stretch:
+• 🏹 Allow users to delete posts.
+• 🏹 Add ‘like’ functionality on posts.
+• 🏹 Create dynamic pages using react-router-dom.
+• 🏹 Create additional SQL queries to show filtered posts.
+
+Remaining Stretch:
+• 🏹 Use react-router-dom to create a dedicated route for the categories
+    For example, /posts/:categoryName.
+
+-->
