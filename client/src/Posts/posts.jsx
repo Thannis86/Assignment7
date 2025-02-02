@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Likes from "./likes";
 import Filter from "./Filter";
+import DeletePost from "./Delete";
 
 export default function Posts() {
   const [items, setItems] = useState([]);
@@ -33,6 +34,9 @@ export default function Posts() {
               <p>{item.words}</p>
               <button onClick={Likes} id={item.id}>
                 Likes:{item.likes}
+              </button>
+              <button onClick={DeletePost} id={item.id}>
+                Delete
               </button>
             </div>
           );

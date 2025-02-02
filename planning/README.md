@@ -74,3 +74,9 @@ Using the above tutorial I have seperated the posts and forms in different pages
 02/02 8pm
 
 Initially working on the filter posts I thought it would be easiest to add some buttons to change a let variable and have that be the basis of the get request. However, I thought that would cheese it a little having only preset options. Currently I am trying to have the filter active through a form. The issue I'm having is that while the request is sent fine, it's not actually adjusting the results that are shown.
+
+---
+
+02/02 9pm
+
+Getting my mind away from that for a breather I've started working on the delete button. My current idea is to basically do the same thing client side that I did for the likes button, but have the server side change. Instead of deleting it, I will change the hidden value to true, and add a section to the get request to not show hidden posts. This is technically the 'delete' function, but I think from an audit perspect you should never delete data. I am aware that if I changed this code to DELETE FROM posts WHERE id=$1, it would delete the post instead, but I prefer this alternative.

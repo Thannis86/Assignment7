@@ -26,7 +26,9 @@ const db = new pg.Pool({
 app.get("/posts", async (req, res) => {
   const query = await db.query(
     `SELECT * FROM posts
-    ORDER BY ID`
+    WHERE hidden='false'
+    ORDER BY ID
+    `
   );
   await res.json(query.rows);
 });
@@ -55,24 +57,24 @@ app.get("/posts", async (req, res) => {
 app.post("/submit-data", async (req, res) => {
   const data = req.body.formData;
   console.log(data);
-  const query = `INSERT INTO posts (name, email, phone, words, likes)
+  const query = `INSERT INTO posts (name, email, phone, words, likes, hidden)
   VALUES ($1, $2, $3, $4, $5)`;
-  await db.query(query, [data.name, data.email, data.phone, data.words, 0]);
+  await db.query(query, [
+    data.name,
+    data.email,
+    data.phone,
+    data.words,
+    0,
+    false,
+  ]);
 });
 
-// app.post("/likes", async (req, res) => {
-//   const data = req.body;
-//   console.log(data);
-//   const query = `UPDATE posts
-// SET likes = likes + 1
-// WHERE id = $1`;
-//   await db.query(query, [data.id]);
-// });
-
-// app.post("/likes", async (req, res) => {
-//   // const data = req.body;
-//   // console.log(data);
-// });
+app.post("/delete-post", async (req, res) => {
+  const data = req.body.likesId;
+  console.log(data);
+  const query = `UPDATE posts SET hidden = true WHERE id = $1`;
+  await db.query(query, [data]);
+});
 
 app.post("/likes-data", async (req, res) => {
   const data = req.body.likesId;
