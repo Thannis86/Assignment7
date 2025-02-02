@@ -9,7 +9,7 @@ export default function MainForm() {
     };
 
     console.log(formData);
-    fetch("http://localhost:8080/submit-data", {
+    fetch("https://assignment7-jt24.onrender.com/submit-data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
