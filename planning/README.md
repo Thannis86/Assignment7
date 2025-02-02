@@ -51,7 +51,7 @@ The current issue that I'm having is linking the ID to the database to be able t
 
 ---
 
-02/02
+02/02 4pm
 
 I immediately changed my mind on the variable and added it. I adjusted the likes function to fetch a post and send the ID, but it doesn't appear to be working. Upon retesting the SQL, I noticed that it doesn't work if the row likes is 0. So I've now updated the form submission SQL to include a section to add a 0. This also means I can remove the if line in the likes button that will give it a 0 if the column shows up as null. However, this isn't the issue with the button because for whatever reason, the data isn't being received by the server, so it appears to be an issue with my fetch request.
 
@@ -60,3 +60,17 @@ Before pushing I noticed an issue with the server suddenly dropping with the new
 After removing code and filling in the form to make sure everything was working how it should be, the server crashed on submission. The issue appears to be with the post for the likes, which I already knew was incorrect and was just filler. After sectioning it off, everything seems to be working server side now and the 0 in the likes is being properly posted.
 
 I have completed the server function to increase the likes. I'm not 100% sure on the issue, but it seemed to be caused by only doing /likes, and when I adjusted it to /likes-data, it seemed to just work which is a little frustrating. It may be an issue with the file names, but it works now and going forward I'll try to use that more. I've also adjusted the get to order by ID, as when liking a post, it would shift them around sometimes. From this I can also adjust how it's ordering them, because I could figure out a way to do this by like count too. I'm currently unsure if I'll have to create a new post request too.
+
+---
+
+02/02 5pm
+
+https://www.youtube.com/watch?v=E4Ha35zDngk
+
+Using the above tutorial I have seperated the posts and forms in different pages. I ran into a couple issues with some of the naming, but I feel a lot more comfortable with this now. I have seperated it and changed the nav buttons to links, so I will need to restyle these.
+
+---
+
+02/02 8pm
+
+Initially working on the filter posts I thought it would be easiest to add some buttons to change a let variable and have that be the basis of the get request. However, I thought that would cheese it a little having only preset options. Currently I am trying to have the filter active through a form. The issue I'm having is that while the request is sent fine, it's not actually adjusting the results that are shown.
