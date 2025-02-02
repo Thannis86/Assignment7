@@ -35,7 +35,7 @@ export default function Filter(props) {
     console.log(filterName);
     if (filterName) {
       const response = await fetch(
-        `http://localhost:8080/posts?name=${filterName}`
+        `https://assignment7-jt24.onrender.com/posts?name=${filterName}`
       );
       const data = await response.json();
       props.setItems(data);
