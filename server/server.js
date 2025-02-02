@@ -24,14 +24,30 @@ const db = new pg.Pool({
 });
 
 app.get("/posts", async (req, res) => {
-  const query = await db.query(
-    `SELECT * FROM posts
-    WHERE hidden='false'
-    ORDER BY ID
-    `
-  );
-  await res.json(query.rows);
+  const filterName = req.query.name;
+
+  let sql = "SELECT * FROM posts WHERE hidden = 'false' ";
+
+  if (filterName) {
+    sql += ` AND name = '${filterName}' `;
+  }
+
+  sql += " ORDER BY ID";
+
+  const result = await db.query(sql);
+  await res.json(result.rows);
+  console.log(sql);
 });
+
+// app.get("/posts", async (req, res) => {
+//   const query = await db.query(
+//     `SELECT * FROM posts
+//     WHERE hidden='false'
+//     ORDER BY ID
+//     `
+//   );
+//   await res.json(query.rows);
+// });
 
 // app.get("/posts", async (req, res) => {
 //   const data = req.body;
