@@ -35,3 +35,16 @@ I have gotten the form to work, however the current issue is with the server. It
 01/02 Lunch
 
 After a lot of experimenting both with my own code that I previously tried, what Sita recommended and even asking chat GPT, I wiped the slate clean and started again. I referred back to my week 4 assignment code and recreated that. This seemed to have a slightly better effect, but was still leading to null in all sections. I noticed that this time it also included the name of the object as formdata, so I added .formData to the data const and it now seems to work fine and the data is being sent to the database properly.
+
+---
+
+01/02 Midnight
+
+https://www.w3schools.com/js/js_this.asp
+https://www.w3schools.com/JSREF/event_target.asp
+
+Now I'm trying to create a like function on the posts. I think this will be easier now than when I've seperated the pages. My current idea is to import the likes in my database to a button, then have that increase the int value on click. I think it will be fairly simple.
+
+The current issue that I'm having is linking the ID to the database to be able to update it. The SQL was easy enough to figure out. I've discovered 'this', however it doesn't seem to want to get the id that I'm giving it which is a pain.
+
+'This' wasn't working, likely because of some issues with react or trying to seperate the components, I'm not completely sure. On some new research, I found that I could target the event itself, so if I do event.target.id, it will give me the id of the object in the event, in the example it's shoving it in a variable which may be useful, but as I'll only need it the once I'm happy to skip that step for now. My only concern is that I'm producing the ID by {item.id}, which may end up clashing with other IDs. If that becomes a problem, I will have to change the ID scheme.
