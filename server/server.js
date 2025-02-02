@@ -31,16 +31,16 @@ app.get("/posts", async (req, res) => {
 app.post("/submit-data", async (req, res) => {
   const data = req.body.formData;
   console.log(data);
-  const query = `INSERT INTO posts (name, email, phone, words)
-  VALUES ($1, $2, $3, $4)`;
-  await db.query(query, [data.name, data.email, data.phone, data.words]);
+  const query = `INSERT INTO posts (name, email, phone, words, likes)
+  VALUES ($1, $2, $3, $4, $5)`;
+  await db.query(query, [data.name, data.email, data.phone, data.words, 0]);
 });
 
-app.post("/likes", async (req, res) => {
-  const data = req.body;
-  console.log(data);
-  const query = `UPDATE posts
-SET likes = likes + 1
-WHERE id = $1;`;
-  await db.query(query, [data.id]);
-});
+// app.post("/likes", async (req, res) => {
+//   const data = req.body;
+//   console.log(data);
+//   const query = `UPDATE posts
+// SET likes = likes + 1
+// WHERE id = $1`;
+//   await db.query(query, [data.id]);
+// });

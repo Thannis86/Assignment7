@@ -48,3 +48,13 @@ Now I'm trying to create a like function on the posts. I think this will be easi
 The current issue that I'm having is linking the ID to the database to be able to update it. The SQL was easy enough to figure out. I've discovered 'this', however it doesn't seem to want to get the id that I'm giving it which is a pain.
 
 'This' wasn't working, likely because of some issues with react or trying to seperate the components, I'm not completely sure. On some new research, I found that I could target the event itself, so if I do event.target.id, it will give me the id of the object in the event, in the example it's shoving it in a variable which may be useful, but as I'll only need it the once I'm happy to skip that step for now. My only concern is that I'm producing the ID by {item.id}, which may end up clashing with other IDs. If that becomes a problem, I will have to change the ID scheme.
+
+---
+
+02/02
+
+I immediately changed my mind on the variable and added it. I adjusted the likes function to fetch a post and send the ID, but it doesn't appear to be working. Upon retesting the SQL, I noticed that it doesn't work if the row likes is 0. So I've now updated the form submission SQL to include a section to add a 0. This also means I can remove the if line in the likes button that will give it a 0 if the column shows up as null. However, this isn't the issue with the button because for whatever reason, the data isn't being received by the server, so it appears to be an issue with my fetch request.
+
+Before pushing I noticed an issue with the server suddenly dropping with the new code added to the form post. It seems to be an issue with how I added the 0. I added it directly the the likes section and the server didn't seem to appreciate that, so I've now changed that to $5 and added the 0 to the dbquery below which seems to not be having the same issue.
+
+After removing code and filling in the form to make sure everything was working how it should be, the server crashed on submission. The issue appears to be with the post for the likes, which I already knew was incorrect and was just filler. After sectioning it off, everything seems to be working server side now and the 0 in the likes is being properly posted
