@@ -28,4 +28,10 @@ I did notice an issue with the env file where I did : instead of =, however even
 
 Currently working on the form and submitting them. I'm struggling to figure out how to send the data in react as it seems to be different from the vanilla framework. I am using Manny's demo as a guide, but that doesn't directly include an example for posting it. What I can see is a blocked out version that I don't belive was tested as on the RefactoredForm, I belive comparing to my notes, line 47 is incorrect and should be outside that set of curly brackets, but I may be wrong in this. However, doing it either way isn't currently helping as the main issue appears to be form values const.
 
-I have gotten the form to work, however the current issue is with the server. It's receiving the data correctly in an object, but isn't sending that to the database properly. I've tried a few different ways including one that Sita suggested, but it doesn't seem to be wroking
+I have gotten the form to work, however the current issue is with the server. It's receiving the data correctly in an object, but isn't sending that to the database properly. I've tried a few different ways including one that Sita suggested, but it doesn't seem to be working
+
+---
+
+01/02 Lunch
+
+After a lot of experimenting both with my own code that I previously tried, what Sita recommended and even asking chat GPT, I wiped the slate clean and started again. I referred back to my week 4 assignment code and recreated that. This seemed to have a slightly better effect, but was still leading to null in all sections. I noticed that this time it also included the name of the object as formdata, so I added .formData to the data const and it now seems to work fine and the data is being sent to the database properly.
