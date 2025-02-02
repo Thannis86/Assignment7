@@ -35,3 +35,12 @@ app.post("/submit-data", async (req, res) => {
   VALUES ($1, $2, $3, $4)`;
   await db.query(query, [data.name, data.email, data.phone, data.words]);
 });
+
+app.post("/likes", async (req, res) => {
+  const data = req.body;
+  console.log(data);
+  const query = `UPDATE posts
+SET likes = likes + 1
+WHERE id = $1;`;
+  await db.query(query, [data.id]);
+});
