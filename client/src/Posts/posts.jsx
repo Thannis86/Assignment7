@@ -11,7 +11,7 @@ export default function Posts() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:8080/posts");
+        const response = await fetch("https://assignment7-jt24.onrender.com/posts");
         const data = await response.json();
         setItems(data);
       } catch (error) {
